@@ -35,9 +35,6 @@ public class TampilkanPelamarLowongan extends javax.swing.JFrame {
         return jScrollPane1;
     }
 
-    public JTextField getNamaLowonganField() {
-        return namaLowonganField;
-    }
 
     public JTextField getNamaPerusahaanField() {
         return namaPerusahaanField;
@@ -61,9 +58,7 @@ public class TampilkanPelamarLowongan extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         namaPerusahaanField = new javax.swing.JTextField();
-        namaLowonganField = new javax.swing.JTextField();
         tampilkanButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         hasilField = new javax.swing.JTextArea();
@@ -76,17 +71,9 @@ public class TampilkanPelamarLowongan extends javax.swing.JFrame {
 
         jLabel3.setText("Nama Perusahaan");
 
-        jLabel4.setText("Nama Lowongan");
-
         namaPerusahaanField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namaPerusahaanFieldActionPerformed(evt);
-            }
-        });
-
-        namaLowonganField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                namaLowonganFieldActionPerformed(evt);
             }
         });
 
@@ -101,27 +88,27 @@ public class TampilkanPelamarLowongan extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(tampilkanButton)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(namaLowonganField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(namaPerusahaanField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel2))
-                    .addComponent(backButton))
-                .addContainerGap(225, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1)
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(namaPerusahaanField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel2))
+                                    .addComponent(backButton)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(232, 232, 232)
+                                .addComponent(tampilkanButton)))
+                        .addGap(0, 210, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -136,14 +123,10 @@ public class TampilkanPelamarLowongan extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(namaPerusahaanField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(namaLowonganField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tampilkanButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                .addGap(52, 52, 52))
         );
 
         pack();
@@ -152,10 +135,6 @@ public class TampilkanPelamarLowongan extends javax.swing.JFrame {
     private void namaPerusahaanFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaPerusahaanFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_namaPerusahaanFieldActionPerformed
-
-    private void namaLowonganFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaLowonganFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_namaLowonganFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,9 +177,7 @@ public class TampilkanPelamarLowongan extends javax.swing.JFrame {
     private javax.swing.JTextArea hasilField;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField namaLowonganField;
     private javax.swing.JTextField namaPerusahaanField;
     private javax.swing.JButton tampilkanButton;
     // End of variables declaration//GEN-END:variables

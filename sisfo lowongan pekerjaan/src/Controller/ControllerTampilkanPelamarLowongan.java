@@ -41,13 +41,12 @@ public class ControllerTampilkanPelamarLowongan implements ActionListener{
             
         }
         
-//        else if(x.equals(p.getTampilkanButton())){
-//            String namaPerusahaan = p.getNamaPerusahaanField().getText();
-//            String namaLowongan = p.getNamaLowonganField().getText();
-//            p.getHasilField().setText(app.tampilPelamarLowongan(namaPerusahaan, namaLowongan));
-//                    }
-//
-//       
+        else if(x.equals(p.getTampilkanButton())){
+            String namaPerusahaan = p.getNamaPerusahaanField().getText();
+            p.getHasilField().setText(app.tampilPelamarLowongan(namaPerusahaan));
+                    }
+
+       
        }
     
     

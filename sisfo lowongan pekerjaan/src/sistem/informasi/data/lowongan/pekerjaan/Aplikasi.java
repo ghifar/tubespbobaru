@@ -20,10 +20,11 @@ public class Aplikasi {
     ArrayList<Pelamar> listPelamar = new ArrayList<>();
     ArrayList<Lowongan> listLowongan = new ArrayList<>();
     Scanner input = new Scanner(System.in);
-    
-    public ArrayList<Lowongan> getListLowongan(){
+
+    public ArrayList<Lowongan> getListLowongan() {
         return this.listLowongan;
     }
+
     public ArrayList<Perusahaan> getListPerusahaan() {
         return this.listPerusahaan;
     }
@@ -210,31 +211,41 @@ public class Aplikasi {
         return s;
     }
 
-    public void displayBerkasDiTerima(String nmPerusahaan, String namaLowongan) {
+    public String displayBerkasDiTerima(String nmPerusahaan, String namaLowongan) {
+        String s ="";
         for (int i = 0; i < getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getnBTerima(); i++) {
-            System.out.println("\t Diterima Sebagai " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getNamaLowongan());
-            System.out.println("id Berkas    : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getIdBerkas());
-            System.out.println("jenis bekas  : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getJenisBerkas());
-            System.out.println("tgl Masuk Berkas : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getTglMasukBerkas());
-            System.out.println("=====================================================================");
+           s=s+"\t Diterima Sebagai " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getNamaLowongan()+"\n";
+            s=s+("id Berkas    : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getIdBerkas()+"\n");
+            s=s+("jenis bekas  : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getJenisBerkas()+"\n");
+            s=s+("tgl Masuk Berkas : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getTglMasukBerkas()+"\n");
+            s=s+("====================================================================="+"\n");
         }
+        return s;
     }
 
-//    public String tampilPelamarLowongan(String nmPerusahaan5, String nmlow) {
-//        String s = "";
-//        for (int i = 0; i < listPerusahaan.size(); i++) {
-//            
-//            for (int j = 0; j < listPerusahaan.get(i).getnLowongan(); j++) {
-//                s=s+getListLowongan().get(j).getNamaLowongan()+"\t";
-//                s=s+get
-//                
-////s = s + ("ID berkas Pelamar : " + getPerusahaan(nmPerusahaan5).getLowongan(nmlow).getBerkasMasuk(j).getIdBerkas());
-//
-//            }
-//
-//        }
-//        return s;
-//    }
+    public String tampilPelamarLowongan(String namaPerusahaan) {
+       String s = "";
+
+        for (int i = 0; i < listPerusahaan.size(); i++) {
+            if (listPerusahaan.get(i).getNamaPerusahaan().equalsIgnoreCase(namaPerusahaan)) {
+                s = s + "===============" + listPerusahaan.get(i).getNamaPerusahaan() + "===============\n";
+                s = s + "pemilik perusahaan : " + listPerusahaan.get(i).getNamaOrang() + "\n";
+                s = s + "Lowongan yang tersedia : \t\t"+"Pelamar \n";
+                s=s+"--------------------------------------------------------------------------------\n";
+                if (listPerusahaan.get(i).getnLowongan() != 0) {
+                    for (int j = 0; j < listPerusahaan.get(i).getnLowongan(); j++) {
+                        s = s + (j + 1) + ". " + listPerusahaan.get(i).getLowongan(j).getNamaLowongan() +"\t\t\t"+getPerusahaan(namaPerusahaan).getLowongan(j).getBerkasMasuk(j).getIdBerkas()+"\n";
+                    }
+                } else {
+                    s = s + "Tidak ada\n";
+                }
+                s = s + "==================================\n";
+            }
+
+        }
+        return s;
+
+    }
 
     public void menu() {
         try {
