@@ -40,16 +40,20 @@ public class Lowongan {
     public String getIdLowongan() {
         return this.idLowongan;
     }
-
+    
+    //menambah berkas
     public void addBerkas(BerkasLamaran b) {
         this.berkasMasuk[nBerkas] = b;
         nBerkas++;
     }
-
+    
+    
+    //mengambil berkas lamaran sesuai index
     public BerkasLamaran getBerkasMasuk(int index) {
         return berkasMasuk[index];
     }
 
+    //mengambil berkas lamaran yang masuk sesuai id String
     public BerkasLamaran getBerkasMasuk(String id) {
         for (int i = 0; i < nBTerima; i++) {
             if (id.equals(this.berkasMasuk[i].getIdBerkas())) {
@@ -59,12 +63,14 @@ public class Lowongan {
         }
         return null;
     }
-
+    
+    
+    //menerima berkas 
     public void terimaBerkas(BerkasLamaran b) {
         if (nBerkas > nBTerima) {
             this.berkasDiterima[nBTerima] = b;
-            nBTerima++;
-            nBerkas--;
+            nBTerima++;//menambah berkas yang diterima
+            nBerkas--;//mengurangi nBerkas
         }
     }
 
@@ -76,6 +82,7 @@ public class Lowongan {
         return berkasDiterima[index];
     }
 
+    //mengahhpus berkas dengan parameter indeks
     public void remBerkas(String index) {
         int getIndex = -2;
         for (int i = 0; i < nBerkas; i++) {
