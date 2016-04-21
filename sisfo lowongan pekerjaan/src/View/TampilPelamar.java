@@ -6,6 +6,7 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 
 /**
@@ -22,9 +23,13 @@ public class TampilPelamar extends javax.swing.JFrame {
     }
 
     public JTextArea getTextPelamar() {
-        return TextPelamar;
+        return textPelamar;
     }
 
+   
+
+    
+   
    
 
     public JButton getButtonPelamar() {
@@ -45,7 +50,7 @@ public class TampilPelamar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         buttonPelamar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        TextPelamar = new javax.swing.JTextArea();
+        textPelamar = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Data Pelamar");
@@ -54,9 +59,9 @@ public class TampilPelamar extends javax.swing.JFrame {
 
         buttonPelamar.setText("Menu Pelamar");
 
-        TextPelamar.setColumns(20);
-        TextPelamar.setRows(5);
-        jScrollPane1.setViewportView(TextPelamar);
+        textPelamar.setColumns(20);
+        textPelamar.setRows(5);
+        jScrollPane1.setViewportView(textPelamar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,13 +70,10 @@ public class TampilPelamar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(buttonPelamar))
-                        .addGap(0, 281, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(buttonPelamar))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,9 +82,9 @@ public class TampilPelamar extends javax.swing.JFrame {
                 .addComponent(buttonPelamar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,9 +126,9 @@ public class TampilPelamar extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea TextPelamar;
     private javax.swing.JButton buttonPelamar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea textPelamar;
     // End of variables declaration//GEN-END:variables
 }

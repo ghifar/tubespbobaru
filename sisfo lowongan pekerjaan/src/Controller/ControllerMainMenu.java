@@ -42,8 +42,9 @@ public class ControllerMainMenu implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         Object x = ae.getSource();
         if(x.equals(mainmenu.getPerusahaan())){
-            this.mainmenu.setVisible(false);
+            
             ControllerPerusahaan cmm= new ControllerPerusahaan(app);
+            this.mainmenu.setVisible(false);
             
         }
         

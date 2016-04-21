@@ -25,7 +25,6 @@ public class ControllerBuatBerkas implements ActionListener{
         this.bb.setVisible(true);
         
         this.bb.getBuatBerkas().addActionListener(this);
-        this.bb.getMenuButton().addActionListener(this);
     }
     
     @Override
@@ -39,11 +38,10 @@ public class ControllerBuatBerkas implements ActionListener{
            
             app.getPelamar(namaPelamar).createBerkas(idBerkas, jenisBerkas, tanggalMasuk);
             JOptionPane.showMessageDialog(null, "BERHASIL!");
+             ControllerPelamar cp = new ControllerPelamar(app);
+             this.bb.setVisible(false);
         }
-        else if(x.equals(bb.getMenuButton())){
-            this.bb.setVisible(false);
-            ControllerPelamar cp = new ControllerPelamar(app);
-        }
+        
     }
     
 }

@@ -6,6 +6,7 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
@@ -32,9 +33,17 @@ public class minatlowongan extends javax.swing.JFrame {
 //    public JTextField getIdPelamar() {
 //        return idPelamar;
 //    }
+//
+//    public JTextField getJenisPekerjaan() {
+//        return jenisPekerjaan;
+//    }
 
-    public JTextField getJenisPekerjaan() {
-        return jenisPekerjaan;
+    public JComboBox<String> getComboBoxjenisPekerjaan() {
+        return comboBoxjenisPekerjaan;
+    }
+
+    public JComboBox<String> getComboBoxnamaPerusahaan() {
+        return comboBoxnamaPerusahaan;
     }
 
   
@@ -47,9 +56,9 @@ public class minatlowongan extends javax.swing.JFrame {
         return namaPelamar;
     }
 
-    public JTextField getNamaperusahaan() {
-        return namaperusahaan;
-    }
+//    public JTextField getNamaperusahaan() {
+//        return namaperusahaan;
+//    }
     
     
 
@@ -67,13 +76,13 @@ public class minatlowongan extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        namaperusahaan = new javax.swing.JTextField();
         namaPelamar = new javax.swing.JTextField();
         idBerkas = new javax.swing.JTextField();
-        jenisPekerjaan = new javax.swing.JTextField();
         daftarButton = new javax.swing.JButton();
         menu = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        comboBoxnamaPerusahaan = new javax.swing.JComboBox<>();
+        comboBoxjenisPekerjaan = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,12 +122,17 @@ public class minatlowongan extends javax.swing.JFrame {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel6)
                                             .addComponent(jLabel5))))
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(namaperusahaan)
-                                    .addComponent(namaPelamar)
-                                    .addComponent(idBerkas)
-                                    .addComponent(jenisPekerjaan, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(namaPelamar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                            .addComponent(idBerkas)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(30, 30, 30)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(comboBoxnamaPerusahaan, 0, 113, Short.MAX_VALUE)
+                                            .addComponent(comboBoxjenisPekerjaan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(menu))
@@ -146,15 +160,15 @@ public class minatlowongan extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(namaperusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                    .addComponent(jLabel3)
+                    .addComponent(comboBoxnamaPerusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jenisPekerjaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(comboBoxjenisPekerjaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addComponent(daftarButton)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
@@ -199,6 +213,8 @@ public class minatlowongan extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboBoxjenisPekerjaan;
+    private javax.swing.JComboBox<String> comboBoxnamaPerusahaan;
     private javax.swing.JButton daftarButton;
     private javax.swing.JTextField idBerkas;
     private javax.swing.JLabel jLabel2;
@@ -207,9 +223,7 @@ public class minatlowongan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jenisPekerjaan;
     private javax.swing.JButton menu;
     private javax.swing.JTextField namaPelamar;
-    private javax.swing.JTextField namaperusahaan;
     // End of variables declaration//GEN-END:variables
 }

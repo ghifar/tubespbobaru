@@ -15,34 +15,52 @@ import sistem.informasi.data.lowongan.pekerjaan.Aplikasi;
  *
  * @author Mendex
  */
-public class ControllerHapusLowongan implements ActionListener{
-    Aplikasi app ;
+public class ControllerHapusLowongan implements ActionListener {
+
+    Aplikasi app;
     HapusLowongan hl;
-    public ControllerHapusLowongan(Aplikasi app){
+
+    public ControllerHapusLowongan(Aplikasi app) {
         this.app = app;
-        this.hl= new HapusLowongan();
+        this.hl = new HapusLowongan();
+
+        this.hl.getComboBoxPerusahaan().addItem("Pilih");
+        for (int i = 0; i < app.getListPerusahaan().size(); i++) {
+            this.hl.getComboBoxPerusahaan().addItem(app.getListPerusahaan().get(i).getNamaPerusahaan());
+
+        }
+
         this.hl.setVisible(true);
-        
-        this.hl.getBackButton().addActionListener(this);
+
+        this.hl.getComboBoxPerusahaan().addActionListener(this);
+        this.hl.getComboBoxIDLOWONGAN().addActionListener(this);
         this.hl.getHapusButton().addActionListener(this);
     }
-    
-    
+
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object x = ae.getSource();
-        if(x.equals(hl.getHapusButton())){
-            String namaPerusahaan = hl.getNamaPerusahaan().getText();
-            String IdLowongan = hl.getIdLowongan().getText();
+        Object a = hl.getComboBoxPerusahaan().getSelectedItem();
+
+        if (x.equals(hl.getComboBoxPerusahaan())) {
+            for (int i = 0; i < app.getListPerusahaan().size(); i++) {
+
+                if (a.equals(app.getListPerusahaan().get(i).getNamaPerusahaan())) {
+                    this.hl.getComboBoxIDLOWONGAN().removeAllItems();
+                    for (int j = 0; j < app.getListPerusahaan().get(i).getnLowongan(); j++) {
+                        this.hl.getComboBoxIDLOWONGAN().addItem(app.getListPerusahaan().get(i).getLowongan(j).getIdLowongan());
+
+                    }
+                }
+
+            }
+        } else if (x.equals(hl.getHapusButton())) {
             
-            app.getPerusahaan(namaPerusahaan).remLowongan(IdLowongan);
+            app.getPerusahaan((String) hl.getComboBoxPerusahaan().getSelectedItem()).remLowongan((String) hl.getComboBoxIDLOWONGAN().getSelectedItem());
             JOptionPane.showMessageDialog(null, "terhapus");
-        }
-        
-        else if(x.equals(hl.getBackButton())){
-            this.hl.setVisible(false);
-           ControllerPerusahaan cp = new ControllerPerusahaan(app);
-        }
+            ControllerPerusahaan cp = new ControllerPerusahaan(app);
+                    
+        } 
     }
-    
+
 }

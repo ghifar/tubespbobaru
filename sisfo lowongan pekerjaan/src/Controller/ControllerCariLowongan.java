@@ -38,8 +38,9 @@ public class ControllerCariLowongan implements ActionListener {
            }
            
            else if(x.equals(cl.getBackButton())){
-               cl.setVisible(false);
+              
                ControllerPerusahaan cp = new ControllerPerusahaan(app);
+                cl.setVisible(false);
            }
     }
     

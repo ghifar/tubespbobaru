@@ -32,9 +32,7 @@ public class buatberkas extends javax.swing.JFrame {
 
    
 
-    public JButton getMenuButton() {
-        return menuButton;
-    }
+   
 
     public JTextField getTanggalMasuk() {
         return tanggalMasuk;
@@ -69,10 +67,10 @@ public class buatberkas extends javax.swing.JFrame {
         tanggalMasuk = new javax.swing.JTextField();
         jenisBerkasPilihan = new javax.swing.JComboBox();
         buatBerkas = new javax.swing.JButton();
-        menuButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         namaPelamar = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,8 +102,6 @@ public class buatberkas extends javax.swing.JFrame {
             }
         });
 
-        menuButton.setText("Menu Pelamar");
-
         jLabel1.setText("Nama Pelamar");
 
         namaPelamar.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +109,8 @@ public class buatberkas extends javax.swing.JFrame {
                 namaPelamarActionPerformed(evt);
             }
         });
+
+        jLabel6.setText("Pelamar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,25 +144,22 @@ public class buatberkas extends javax.swing.JFrame {
                             .addComponent(idBekas, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(menuButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(menuButton)
-                .addGap(4, 4, 4)
+                .addComponent(jLabel6)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -251,9 +246,9 @@ public class buatberkas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JComboBox jenisBerkasPilihan;
-    private javax.swing.JButton menuButton;
     private javax.swing.JTextField namaPelamar;
     private javax.swing.JTextField tanggalMasuk;
     // End of variables declaration//GEN-END:variables

@@ -6,6 +6,7 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -25,16 +26,18 @@ public class TampilkanBerkasDiterima extends javax.swing.JFrame {
     public JButton getTampilkanButton() {
         return tampilkanButton;
     }
+
+    public JComboBox<String> getComboBoxPErusahaan() {
+        return comboBoxPErusahaan;
+    }
+
+    public JComboBox<String> getComboBoxPErusahaan1() {
+        return comboBoxPErusahaan1;
+    }
     
     
 
-    public JTextField getNamaLowonganField() {
-        return namaLowonganField;
-    }
-
-    public JTextField getNamaPerusahaanField() {
-        return namaPerusahaanField;
-    }
+   
 
     public JButton getBackButton() {
         return backButton;
@@ -61,9 +64,9 @@ public class TampilkanBerkasDiterima extends javax.swing.JFrame {
         hasilField = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        namaPerusahaanField = new javax.swing.JTextField();
-        namaLowonganField = new javax.swing.JTextField();
         tampilkanButton = new javax.swing.JButton();
+        comboBoxPErusahaan = new javax.swing.JComboBox<>();
+        comboBoxPErusahaan1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,6 +83,12 @@ public class TampilkanBerkasDiterima extends javax.swing.JFrame {
         jLabel3.setText("Nama Lowongan");
 
         tampilkanButton.setText("Tampilkan");
+
+        comboBoxPErusahaan1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxPErusahaan1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,15 +108,15 @@ public class TampilkanBerkasDiterima extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tampilkanButton)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(59, 59, 59)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(namaLowonganField, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(namaPerusahaanField, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(jLabel3)
+                                .addGap(128, 128, 128)
+                                .addComponent(comboBoxPErusahaan1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(73, 73, 73)
+                                .addComponent(comboBoxPErusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tampilkanButton))))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,20 +129,24 @@ public class TampilkanBerkasDiterima extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(namaPerusahaanField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboBoxPErusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(namaLowonganField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(comboBoxPErusahaan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tampilkanButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comboBoxPErusahaan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxPErusahaan1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxPErusahaan1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,13 +185,13 @@ public class TampilkanBerkasDiterima extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JComboBox<String> comboBoxPErusahaan;
+    private javax.swing.JComboBox<String> comboBoxPErusahaan1;
     private javax.swing.JTextArea hasilField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField namaLowonganField;
-    private javax.swing.JTextField namaPerusahaanField;
     private javax.swing.JButton tampilkanButton;
     // End of variables declaration//GEN-END:variables
 }

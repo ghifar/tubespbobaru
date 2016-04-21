@@ -16,40 +16,59 @@ import sistem.informasi.data.lowongan.pekerjaan.Aplikasi;
  *
  * @author Mendex
  */
-public class ControllerTambahBerkas implements ActionListener{
+public class ControllerTambahBerkas implements ActionListener {
+
     Aplikasi app;
     TerimaBerkas tb;
-    
-    public ControllerTambahBerkas(Aplikasi app){
+
+    public ControllerTambahBerkas(Aplikasi app) {
         this.app = app;
-        this.tb= new TerimaBerkas();
+        this.tb = new TerimaBerkas();
+
+        this.tb.getComboBoxPerusahaan().addItem("Pilih");
+        for (int i = 0; i < app.getListPerusahaan().size(); i++) {
+            this.tb.getComboBoxPerusahaan().addItem(app.getListPerusahaan().get(i).getNamaPerusahaan());
+
+        }
+
+        this.tb.getComboBoxLowongan().addActionListener(this);
+        this.tb.getComboBoxPerusahaan().addActionListener(this);
         this.tb.setVisible(true);
-        
         this.tb.getBackButton().addActionListener(this);
         this.tb.getTerimaButton().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        Object x =ae.getSource();
-        
-        if(x.equals(tb.getBackButton())){
+        Object x = ae.getSource();
+        Object a = tb.getComboBoxPerusahaan().getSelectedItem();
+
+        if (x.equals(tb.getBackButton())) {
             this.tb.setVisible(false);
             ControllerPerusahaan cp = new ControllerPerusahaan(app);
+        } else if (x.equals(tb.getComboBoxPerusahaan())) {
+            for (int i = 0; i < app.getListPerusahaan().size(); i++) {
+
+                if (a.equals(app.getListPerusahaan().get(i).getNamaPerusahaan())) {
+                    this.tb.getComboBoxLowongan().removeAllItems();
+                    for (int j = 0; j < app.getListPerusahaan().get(i).getnLowongan(); j++) {
+                        this.tb.getComboBoxLowongan().addItem(app.getListPerusahaan().get(i).getLowongan(j).getNamaLowongan());
+
+                    }
+                }
+
+            }
+
+        } else if (x.equals(tb.getTerimaButton())) {
+            String namaPelamar = tb.getNamaPelamarField().getText();
+            String idBerkas = tb.getIdBerkasField().getText();
+
+            app.getPerusahaan((String) this.tb.getComboBoxPerusahaan().getSelectedItem()).getLowongan((String) this.tb.getComboBoxLowongan().getSelectedItem()).terimaBerkas(app.getPelamar(namaPelamar).getBerkas(idBerkas));
+            JOptionPane.showMessageDialog(null, "Berhasil Diterima");
         }
         
-        else if(x.equals(tb.getTerimaButton())){
-            String namaPerusahaan = tb.getNamaPerusahaanField().getText();
-            String namaPelamar = tb.getNamaPelamarField().getText();
-            String namaLowongan = tb.getNamaLowonganField().getText();
-            String idBerkas = tb.getIdBerkasField().getText();
-            
-            app.getPerusahaan(namaPerusahaan).getLowongan(namaLowongan).terimaBerkas(app.getPelamar(namaPelamar).getBerkas(idBerkas));
-            JOptionPane.showMessageDialog(null, "Berhasil Diterima");
-            
-            
-        }
+      
 
     }
-    
+
 }

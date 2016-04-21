@@ -6,6 +6,7 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 /**
@@ -33,8 +34,8 @@ public class TambahLowongan extends javax.swing.JFrame {
         return namaLowonganField;
     }
 
-    public JTextField getNamaPerusahaanField() {
-        return namaPerusahaanField;
+    public JComboBox<String> getComboBoxPerusahaan() {
+        return comboBoxPerusahaan;
     }
 
     public JButton getTambahButton() {
@@ -60,13 +61,13 @@ public class TambahLowongan extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         namaLowonganField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        namaPerusahaanField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         idLowonganField = new javax.swing.JTextField();
         backButton = new javax.swing.JButton();
         tambahButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         deadlineFieldText = new javax.swing.JTextField();
+        comboBoxPerusahaan = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,12 +82,6 @@ public class TambahLowongan extends javax.swing.JFrame {
         });
 
         jLabel4.setText("Nama Lowongan");
-
-        namaPerusahaanField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                namaPerusahaanFieldActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Id Lowongan");
 
@@ -123,14 +118,14 @@ public class TambahLowongan extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(namaPerusahaanField, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(comboBoxPerusahaan, 0, 207, Short.MAX_VALUE))
                             .addComponent(tambahButton)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel5))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -138,7 +133,7 @@ public class TambahLowongan extends javax.swing.JFrame {
                                             .addComponent(idLowonganField)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(28, 28, 28)
-                                        .addComponent(deadlineFieldText))))))
+                                        .addComponent(deadlineFieldText, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backButton)))
@@ -150,12 +145,11 @@ public class TambahLowongan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel3))
-                    .addComponent(namaPerusahaanField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel2)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(comboBoxPerusahaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -170,19 +164,11 @@ public class TambahLowongan extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(4, 4, 4)
                 .addComponent(tambahButton)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void namaLowonganFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaLowonganFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_namaLowonganFieldActionPerformed
-
-    private void namaPerusahaanFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaPerusahaanFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_namaPerusahaanFieldActionPerformed
 
     private void idLowonganFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idLowonganFieldActionPerformed
         // TODO add your handling code here:
@@ -191,6 +177,10 @@ public class TambahLowongan extends javax.swing.JFrame {
     private void deadlineFieldTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deadlineFieldTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deadlineFieldTextActionPerformed
+
+    private void namaLowonganFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaLowonganFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namaLowonganFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,6 +220,7 @@ public class TambahLowongan extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JComboBox<String> comboBoxPerusahaan;
     private javax.swing.JTextField deadlineFieldText;
     private javax.swing.JTextField idLowonganField;
     private javax.swing.JLabel jLabel2;
@@ -238,7 +229,6 @@ public class TambahLowongan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField namaLowonganField;
-    private javax.swing.JTextField namaPerusahaanField;
     private javax.swing.JButton tambahButton;
     // End of variables declaration//GEN-END:variables
 }

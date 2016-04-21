@@ -23,8 +23,15 @@ public class ControllerTambahLowongan implements ActionListener {
     public ControllerTambahLowongan(Aplikasi ap) {
         this.app = ap;
         this.tl = new TambahLowongan();
-        this.tl.setVisible(true);
+        
+        this.tl.getComboBoxPerusahaan().addItem("Pilih");
+        for (int i = 0; i < app.getListPerusahaan().size(); i++) {
+            this.tl.getComboBoxPerusahaan().addItem(app.getListPerusahaan().get(i).getNamaPerusahaan());
 
+        }
+        
+        this.tl.setVisible(true);
+        this.tl.getComboBoxPerusahaan().addActionListener(this);
         this.tl.getBackButton().addActionListener(this);
         this.tl.getTambahButton().addActionListener(this);
     }
@@ -32,15 +39,17 @@ public class ControllerTambahLowongan implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object x = ae.getSource();
+        
+        
         if (x.equals(tl.getTambahButton())) {
-            String namaPerusahaan = tl.getNamaPerusahaanField().getText();
             String namaLowongan = tl.getNamaLowonganField().getText();
             String idLowongan = tl.getIdLowonganField().getText();
             String deadline = tl.getDeadlineFieldText().getText();
 
-            app.getPerusahaan(namaPerusahaan).createLowongan(idLowongan, namaLowongan, deadline);
+            app.getPerusahaan((String) tl.getComboBoxPerusahaan().getSelectedItem()).createLowongan(idLowongan, namaLowongan, deadline);
             JOptionPane.showMessageDialog(null, "Lowongan Berhasil Ditambahkan");
         } else if (x.equals(tl.getBackButton())) {
+            this.tl.setVisible(false);
             ControllerPerusahaan cp = new ControllerPerusahaan(app);
         }
     }

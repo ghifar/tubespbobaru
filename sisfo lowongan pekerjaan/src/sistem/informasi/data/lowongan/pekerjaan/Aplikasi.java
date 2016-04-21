@@ -19,7 +19,12 @@ public class Aplikasi {
     ArrayList<Perusahaan> listPerusahaan = new ArrayList<>();
     ArrayList<Pelamar> listPelamar = new ArrayList<>();
     ArrayList<Lowongan> listLowongan = new ArrayList<>();
+    ArrayList<BerkasLamaran> listBerkas = new ArrayList<>();
     Scanner input = new Scanner(System.in);
+
+    public ArrayList<BerkasLamaran> getListBerkas() {
+        return this.listBerkas;
+    }
 
     public ArrayList<Lowongan> getListLowongan() {
         return this.listLowongan;
@@ -90,12 +95,21 @@ public class Aplikasi {
     }
 
     public void hapusPerusahaan(String namaPerusahaan) {
+        int o = 0;
         for (int i = 0; i < listPerusahaan.size(); i++) {
             if (listPerusahaan.get(i).getNamaPerusahaan().equalsIgnoreCase(namaPerusahaan)) {
                 listPerusahaan.remove(i);
+                o = 1;
             }
 
         }
+        if (o == 0) {
+            System.out.println("Perusahaan tersebut tidak ada");
+
+        } else {
+            System.out.println("Perusahaan Berhasil Dihapus");
+        }
+
     }
 
     public void updatePerusahan(int indexYgMauDiupdate, Perusahaan dataYgBaru) {
@@ -109,10 +123,10 @@ public class Aplikasi {
             if (listPerusahaan.get(i).getNamaPerusahaan().equalsIgnoreCase(namaPerusahaan)) {
                 s = s + "===============" + listPerusahaan.get(i).getNamaPerusahaan() + "===============\n";
                 s = s + "pemilik perusahaan : " + listPerusahaan.get(i).getNamaOrang() + "\n";
-                s = s + "Lowongan yang tersedia : ";
+                s = s + "Lowongan yang tersedia : \n";
                 if (listPerusahaan.get(i).getnLowongan() != 0) {
                     for (int j = 0; j < listPerusahaan.get(i).getnLowongan(); j++) {
-                        s = s + (j + 1) + ". " + listPerusahaan.get(i).getLowongan(j).getNamaLowongan() + "\n";
+                        s = s + (j + 1) + ".) " + listPerusahaan.get(i).getLowongan(j).getNamaLowongan() + "\n";
                     }
                 } else {
                     s = s + "Tidak ada\n";
@@ -212,29 +226,39 @@ public class Aplikasi {
     }
 
     public String displayBerkasDiTerima(String nmPerusahaan, String namaLowongan) {
-        String s ="";
+        String s = "";
+        int o = 0;
+        if(getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getnBTerima()!= 0){
         for (int i = 0; i < getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getnBTerima(); i++) {
-           s=s+"\t Diterima Sebagai " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getNamaLowongan()+"\n";
-            s=s+("id Berkas    : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getIdBerkas()+"\n");
-            s=s+("jenis bekas  : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getJenisBerkas()+"\n");
-            s=s+("tgl Masuk Berkas : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getTglMasukBerkas()+"\n");
-            s=s+("====================================================================="+"\n");
+
+            s = s + "\t Diterima Sebagai " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getNamaLowongan() + "\n";
+            s = s + ("id Berkas    : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getIdBerkas() + "\n");
+            s = s + ("jenis bekas  : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getJenisBerkas() + "\n");
+            s = s + ("tgl Masuk Berkas : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getTglMasukBerkas() + "\n");
+            s = s + ("=====================================================================" + "\n");
+            o = 1;
+        }}else if (getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getnBTerima() == 0) {
+                o=0;
+                s=s+"Belum ada yang berkas yang diterima";
+
+            }
+            return s;
         }
-        return s;
-    }
+
+    
 
     public String tampilPelamarLowongan(String namaPerusahaan) {
-       String s = "";
+        String s = "";
 
         for (int i = 0; i < listPerusahaan.size(); i++) {
             if (listPerusahaan.get(i).getNamaPerusahaan().equalsIgnoreCase(namaPerusahaan)) {
                 s = s + "===============" + listPerusahaan.get(i).getNamaPerusahaan() + "===============\n";
                 s = s + "pemilik perusahaan : " + listPerusahaan.get(i).getNamaOrang() + "\n";
-                s = s + "Lowongan yang tersedia : \t\t"+"Pelamar \n";
-                s=s+"--------------------------------------------------------------------------------\n";
+                s = s + "Lowongan yang tersedia : \t\t" + "Pelamar \n";
+                s = s + "--------------------------------------------------------------------------------\n";
                 if (listPerusahaan.get(i).getnLowongan() != 0) {
                     for (int j = 0; j < listPerusahaan.get(i).getnLowongan(); j++) {
-                        s = s + (j + 1) + ". " + listPerusahaan.get(i).getLowongan(j).getNamaLowongan() +"\t\t\t"+getPerusahaan(namaPerusahaan).getLowongan(j).getBerkasMasuk(j).getIdBerkas()+"\n";
+                        s = s + (j + 1) + ". " + listPerusahaan.get(i).getLowongan(j).getNamaLowongan() + "\t\t\t" + getPerusahaan(namaPerusahaan).getLowongan(j).getBerkasMasuk(j).getIdBerkas() + "\n";
                     }
                 } else {
                     s = s + "Tidak ada\n";
@@ -286,7 +310,7 @@ public class Aplikasi {
                                 System.out.println(displayPerusahaan());
                                 break;
                             case 3:
-                                System.out.println("Hapus perusahaan : ");
+                                System.out.print("Masukkan Nama Perusahaan yang akan dihapus : ");
 //                                int in = Integer.parseInt(input2.readLine());
                                 String nmPerusahaan1 = input2.readLine();
                                 hapusPerusahaan(nmPerusahaan1);
@@ -294,7 +318,7 @@ public class Aplikasi {
                             case 4:
                                 System.out.println("cari nama lowongan : ");
                                 String namaLowongan = input2.readLine();
-                                searchLowongan(namaLowongan);
+                                System.out.println(searchLowongan(namaLowongan));
                                 break;
                             case 5:
                                 System.out.println("Nama perusahaan : ");
@@ -320,7 +344,7 @@ public class Aplikasi {
                             case 7:
                                 System.out.println("cari nama perusahaan : ");
                                 String nmPerusahaan4 = input2.readLine();
-                                searchPerusahaan(nmPerusahaan4);
+                                System.out.println(searchPerusahaan(nmPerusahaan4));
 
                                 break;
                             case 8:
@@ -361,7 +385,7 @@ public class Aplikasi {
                                 System.out.println("masukkan nama lowongan yang ingin diliat ");
                                 String nmloww = input2.readLine();
                                 //System.out.println(getPerusahaan(iindexper).getLowongan(iindexlow).getnBTerima());
-                                displayBerkasDiTerima(nmPerusahaan7, nmloww);
+                                System.out.println(displayBerkasDiTerima(nmPerusahaan7, nmloww));
                                 break;
 
                         }
@@ -386,7 +410,7 @@ public class Aplikasi {
                                 break;
 
                             case 2:
-                                displayPelamar();
+                                System.out.println(displayPelamar());
                                 break;
                             case 3:
                                 System.out.println("hapus nama pelamar : ");
@@ -396,7 +420,7 @@ public class Aplikasi {
                             case 4:
                                 System.out.println("cari nama pelamar : ");
                                 String nmPel = input2.readLine();
-                                searchPelamar(nmPel);
+                                System.out.println(searchPelamar(nmPel));
                                 break;
                             case 5:
                                 System.out.println("Nama Pelamar : ");

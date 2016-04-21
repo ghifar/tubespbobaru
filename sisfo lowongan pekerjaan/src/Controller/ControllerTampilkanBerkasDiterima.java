@@ -21,7 +21,17 @@ public class ControllerTampilkanBerkasDiterima implements ActionListener{
     public ControllerTampilkanBerkasDiterima(Aplikasi ap) {
         this.app = ap;
         this.tp = new TampilkanBerkasDiterima();
+        
+        this.tp.getComboBoxPErusahaan().addItem("Pilih");
+        for (int i = 0; i < app.getListPerusahaan().size(); i++) {
+            this.tp.getComboBoxPErusahaan().addItem(app.getListPerusahaan().get(i).getNamaPerusahaan());
+
+        }
+        
         this.tp.setVisible(true);
+        
+        this.tp.getComboBoxPErusahaan().addActionListener(this);
+        this.tp.getComboBoxPErusahaan1().addActionListener(this);
 
         this.tp.getBackButton().addActionListener(this);
         this.tp.getTampilkanButton().addActionListener(this);
@@ -37,14 +47,26 @@ public class ControllerTampilkanBerkasDiterima implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
              Object x = ae.getSource();
+             Object a= tp.getComboBoxPErusahaan().getSelectedItem();
         if (x.equals(tp.getBackButton())) {
             this.tp.setVisible(false);
             ControllerPerusahaan cm = new ControllerPerusahaan(app);
         }
+        else if(x.equals(tp.getComboBoxPErusahaan())){
+            for (int i = 0; i < app.getListPerusahaan().size(); i++) {
+
+                if (a.equals(app.getListPerusahaan().get(i).getNamaPerusahaan())) {
+                    this.tp.getComboBoxPErusahaan1().removeAllItems();
+                    for (int j = 0; j < app.getListPerusahaan().get(i).getnLowongan(); j++) {
+                        this.tp.getComboBoxPErusahaan1().addItem(app.getListPerusahaan().get(i).getLowongan(j).getNamaLowongan());
+
+                    }
+                }
+        }
+        }
+        
         else if(x.equals(tp.getTampilkanButton())){
-            String namaPerusahaan = tp.getNamaPerusahaanField().getText();
-            String namaLowongan = tp.getNamaLowonganField().getText();
-            tp.getHasilField().setText(app.displayBerkasDiTerima(namaPerusahaan, namaLowongan));
+            tp.getHasilField().setText(app.displayBerkasDiTerima((String) tp.getComboBoxPErusahaan().getSelectedItem(), (String)tp.getComboBoxPErusahaan1().getSelectedItem()));
         
         }
     
